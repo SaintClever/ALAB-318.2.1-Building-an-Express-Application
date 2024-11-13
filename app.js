@@ -48,8 +48,8 @@ app.route('/contact')
     console.log(req.body);
     visiters.push(req.body);
     logger.info(visiters);
-    res.redirect('/contact');
-    // res.send('Post successful ', 201);
+    // res.redirect('/contact');
+    res.send('Post successfully created! ', 201);
   });
 
 app.get('/download', (req, res) => {
