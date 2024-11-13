@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+<%- include("partials/head") -%>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+  <body>
+    <!-- locals is the key word to get the data -->
 
-<body>
-  <h1>Hello from EJS!</h1>
-</body>
+    <a href="/contact">contact</a><br>
+
+    <h1>Hello from EJS!</h1>
+    <h2>Hello there, <%= locals.user %>
+    </h2>
+    <p>language: <%= locals.language %>
+    </p>
+    <img src="<%= locals.image %>" alt="<%= locals.user %>">
+  </body>
 
 </html>
