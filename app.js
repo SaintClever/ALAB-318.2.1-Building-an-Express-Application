@@ -13,7 +13,6 @@ const __dirname = dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-
 // EJS setup
 app.set('views', `${__dirname}/views`);
 app.set('view engine', 'ejs');
@@ -49,6 +48,12 @@ app.post('/contact', (req, res) => {
   visiters.push(req.body)
   logger.info(visiters)
   res.send('Post succesfully ', 201);
+});
+
+app.get('/download', (req, res) => {
+  res.download('public/nodejsLogo.png', (err) => {
+    logger.info('file downloaded')
+  });
 });
 
 app.listen(PORT, (err) => {
