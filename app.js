@@ -39,16 +39,18 @@ app.get('/', (req, res) => {
   res.render('index', data);
 });
 
-app.get('/contact', (req, res) => {
-  res.render('contact');
-});
-
-app.post('/contact', (req, res) => {
-  console.log(req.body);
-  visiters.push(req.body)
-  logger.info(visiters)
-  res.send('Post succesfully ', 201);
-});
+app.route('/contact')
+  .get((req, res) => {
+    // Get ejs contact page
+    res.render('contact');
+  })
+  .post((req, res) => {
+    console.log(req.body);
+    visiters.push(req.body);
+    logger.info(visiters);
+    res.redirect('/contact');
+    // res.send('Post successful ', 201);
+  });
 
 app.get('/download', (req, res) => {
   res.download('public/nodejsLogo.png', (err) => {
